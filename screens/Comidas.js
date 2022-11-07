@@ -29,6 +29,7 @@ const Comidas = () => {
     });
     return unsuscribe;
   }, []);
+  const [leng] = React.useState([...state]);
   return (
     // <AgendaScreen />
     <View style={styles.container}>
@@ -46,13 +47,39 @@ const Comidas = () => {
             Ingredientes
           </Text>
           <ScrollView>
-            {state.map((state) => (
-              <Ingredients key={state.id} {...state} />
-            ))}
-            <Button
-              title="add new ingredients"
-              onPress={() => navigation.navigate("add")}
-            />
+            {state.length ? (
+              <View
+                style={{
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginTop: 10,
+                    marginBottom: 10,
+                  }}
+                >
+                  No Hay Ingredientes Agregados!!
+                </Text>
+                <Button
+                  title="add new ingredients"
+                  onPress={() => navigation.navigate("add")}
+                />
+              </View>
+            ) : (
+              <View>
+                {state.map((state) => (
+                  <Ingredients key={state.id} {...state} />
+                ))}
+                <Button
+                  title="add new ingredients"
+                  onPress={() => navigation.navigate("add")}
+                />
+              </View>
+            )}
           </ScrollView>
         </View>
       </View>
