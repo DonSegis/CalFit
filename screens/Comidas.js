@@ -47,7 +47,7 @@ const Comidas = () => {
             Ingredientes
           </Text>
           <ScrollView>
-            {state.length ? (
+            {leng.length ? (
               <View
                 style={{
                   flex: 1,
