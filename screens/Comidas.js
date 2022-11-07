@@ -1,12 +1,63 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Button, ScrollView, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { database } from "../src/database/firebase";
+import { collection, onSnapshot, query } from "firebase/firestore";
+import Ingredients from "../src/components/Ingredients";
+import styles from "../Styles";
+import Calendar from "../src/components/Weekcalendar";
+import AgendaScreen from "../src/components/Weekcalendar";
 
-function Comidas() {
+const Comidas = () => {
+  const navigation = useNavigation();
+  const [state, setstate] = React.useState([]);
+
+  React.useEffect(() => {
+    const collectionRef = collection(database, "ingredients");
+    const q = query(collectionRef /*, orderBy("name", "desc")*/);
+
+    const unsuscribe = onSnapshot(q, (querySnapshot) => {
+      setstate(
+        querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().name,
+          calories: doc.data().calories,
+          proteins: doc.data().proteins,
+          lipids: doc.data().lipids,
+        }))
+      );
+    });
+    return unsuscribe;
+  }, []);
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Comidas!</Text>
+    // <AgendaScreen />
+    <View style={styles.container}>
+      <View style={styles.containerAgenda}>
+        <AgendaScreen />
+      </View>
+      <View style={styles.conttainerFood}>
+        <View style={styles.boxplato}>
+          <Text>No Hay Ingredientes Agregados!!</Text>
+        </View>
+        <View style={styles.boxFood}>
+          <Text
+            style={{ textAlign: "center", marginTop: 10, marginBottom: 10 }}
+          >
+            Ingredientes
+          </Text>
+          <ScrollView>
+            {state.map((state) => (
+              <Ingredients key={state.id} {...state} />
+            ))}
+            <Button
+              title="add new ingredients"
+              onPress={() => navigation.navigate("add")}
+            />
+          </ScrollView>
+        </View>
+      </View>
     </View>
   );
-}
+};
 
 export default Comidas;
