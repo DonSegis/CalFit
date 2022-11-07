@@ -10,6 +10,19 @@ import Login from "./screens/Login";
 
 //iconos
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CreateIngredients from "./screens/CreateIngredients";
+
+const Stack = createNativeStackNavigator();
+
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Comidas" component={Comidas} />
+      <Stack.Screen name="add" component={CreateIngredients} />
+    </Stack.Navigator>
+  );
+}
 
 const Tab = createBottomTabNavigator();
 
@@ -33,8 +46,9 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Comidas"
-        component={Comidas}
+        component={MyStack}
         options={{
+          headerShown: false,
           tabBarLabel: "Comidas",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons

@@ -10,6 +10,26 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     marginLeft: "10%",
   },
+  container: {
+    flex: 1,
+  },
+  containerAgenda: {
+    flex: 1,
+  },
+  conttainerFood: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  boxFood: {
+    width: "50%",
+    borderWidth: 1.5,
+  },
+  boxplato: {
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1.5,
+  },
 });
 
 export default styles;
