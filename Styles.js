@@ -12,23 +12,39 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    borderWidth: 1.5,
   },
   containerAgenda: {
     flex: 1,
   },
-  conttainerFood: {
+  containerFood: {
     flex: 1,
-    flexDirection: "row",
+    height: 700,
   },
+
   boxFood: {
-    width: "50%",
-    borderWidth: 1.5,
-  },
-  boxplato: {
-    width: "50%",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
-    borderWidth: 1.5,
+    backgroundColor: "#6495ed",
+    height: 120,
+    width: 310,
+    borderRadius: 15,
+    margin: 10,
+  },
+  boxFoodName: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  boxFoodExtar: {
+    flex: 1,
+    justifyContent: "center",
+    marginRight: 10,
+    padding: 0,
+  },
+  text: {
+    flex: 1,
+    textAlign: "center",
   },
 });
 

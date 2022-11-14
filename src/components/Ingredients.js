@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { database } from "../database/firebase";
 import {
   deleteDoc,
@@ -8,6 +8,7 @@ import {
   addDoc,
   collection,
   query,
+  getDoc,
 } from "firebase/firestore";
 import { ListItem } from "@rneui/base";
 
@@ -31,6 +32,7 @@ export default function Ingredients({ id, name, calories, proteins, lipids }) {
         <ListItem.Title>Lip: {lipids}</ListItem.Title>
       </ListItem.Content>
     </ListItem>
+
     // <View style={Styles.container}>
     //   {/* <View>
     //     <Button title="add" onPress={add} />

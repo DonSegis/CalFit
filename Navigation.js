@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 //pantallas
 import HomeScreen from "./screens/Home";
-import Comidas from "./screens/Comidas";
+import ListaComidas from "./screens/ListaComidas";
 import Pasos from "./screens/Pasos";
 import Login from "./screens/Login";
 
@@ -12,6 +12,7 @@ import Login from "./screens/Login";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateIngredients from "./screens/CreateIngredients";
+import Comidas from "./screens/Comidas";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Comidas" component={Comidas} />
+      <Stack.Screen name="ListarComidas" component={ListaComidas} />
       <Stack.Screen name="add" component={CreateIngredients} />
     </Stack.Navigator>
   );
