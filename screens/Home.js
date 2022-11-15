@@ -44,6 +44,7 @@ function HomeScreen() {
     });
     return unsuscribe;
   }, []);
+
   let imb = 0;
   user.map((value) => {
     if (value.sex === "M") {
