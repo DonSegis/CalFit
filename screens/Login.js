@@ -33,6 +33,7 @@ function Login() {
         }))
       );
     });
+    console.log(state.id);
     return unsuscribe;
   }, []);
 

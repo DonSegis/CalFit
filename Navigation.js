@@ -13,6 +13,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateIngredients from "./screens/CreateIngredients";
 import Comidas from "./screens/Comidas";
+import EditUser from "./screens/EditUser";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,14 @@ function MyStack() {
     </Stack.Navigator>
   );
 }
-
+function MyStackUser() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="User" component={Login} />
+      <Stack.Screen name="Edit" component={EditUser} />
+    </Stack.Navigator>
+  );
+}
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -77,8 +85,9 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Login"
-        component={Login}
+        component={MyStackUser}
         options={{
+          headerShown: false,
           tabBarLabel: "Cuenta",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />

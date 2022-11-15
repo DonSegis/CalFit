@@ -1,7 +1,29 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 export default function User({ id, name, age, height, weight, sex }) {
+  const navigation = useNavigation();
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Feather
+          name="edit"
+          size={24}
+          color="black"
+          onPress={() => navigation.navigate("Edit")}
+        />
+      ),
+    });
+  }, []);
   return (
     <View>
       <View style={{ flex: 1 }}>

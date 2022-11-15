@@ -42,7 +42,6 @@ function HomeScreen() {
         }))
       );
     });
-    console.log(user);
     return unsuscribe;
   }, []);
   let imb = 0;
@@ -55,7 +54,7 @@ function HomeScreen() {
       return imb;
     }
   });
-  console.log(imb);
+
   let total = 0;
   state.map((value) => {
     total += value.calories;
