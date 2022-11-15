@@ -18,11 +18,9 @@ import CreateUser from "./CreateUser";
 
 function Login() {
   const [state, setstate] = React.useState([]);
-
   React.useEffect(() => {
     const collectionRef = collection(database, "user");
     const q = query(collectionRef /*, orderBy("name", "desc")*/);
-
     const unsuscribe = onSnapshot(q, (querySnapshot) => {
       setstate(
         querySnapshot.docs.map((doc) => ({

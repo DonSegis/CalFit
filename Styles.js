@@ -10,6 +10,14 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     marginLeft: "10%",
   },
+  textCenter: {
+    height: 50,
+    width: "85%",
+    overflow: "hidden",
+    fontSize: 25,
+    textAlign: "center",
+    paddingTop: 10,
+  },
   container: {
     flex: 1,
     borderWidth: 1.5,
