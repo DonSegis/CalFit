@@ -46,16 +46,20 @@ function HomeScreen() {
   }, []);
 
   let imb = 0;
-  user.map((value) => {
-    if (value.sex === "M") {
-      imb = 10 * value.weight + 6.25 * value.height - 5 * value.age + 5 + 300;
-      return imb;
-    } else {
-      imb = 10 * value.weight + 6.25 * value.height - 5 * value.age - 161 + 300;
-      return imb;
-    }
-  });
-
+  if(!user.length){
+    imb=2000
+  }
+  else{ 
+    user.map((value) => {
+      if (value.sex === "M") {
+        imb = 10 * value.weight + 6.25 * value.height - 5 * value.age + 5 + 300;
+        return imb;
+      } else {
+        imb = 10 * value.weight + 6.25 * value.height - 5 * value.age - 161 + 300;
+        return imb;
+      }
+    });
+  }
   let total = 0;
   state.map((value) => {
     total += value.calories;
