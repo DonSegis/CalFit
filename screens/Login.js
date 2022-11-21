@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   Button,
+  Alert,
 } from "react-native";
 import {
   getAuth,
@@ -44,24 +45,22 @@ function LoginScreen() {
   const handlerCreateAccount = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("Account created!");
         const user = userCredential.user;
-        console.log(user);
+        Alert.alert("User Created");
       })
       .catch((error) => {
-        console.log(error);
+        Alert.alert(error.message);
       });
   };
 
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("Signed in!");
         const user = userCredential.user;
-        console.log(user);
+        Alert.alert("Sign In");
       })
       .catch((error) => {
-        console.log(error);
+        Alert.alert("E-Mail or Passord incorrect");
       });
   };
 
