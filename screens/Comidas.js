@@ -50,7 +50,11 @@ function Comidas() {
         }}
       >
         {!state.length ? (
-          <View>
+          <View
+            style={{
+              paddingVertical: "80%",
+            }}
+          >
             <Text>No hay Platos agregados</Text>
           </View>
         ) : (

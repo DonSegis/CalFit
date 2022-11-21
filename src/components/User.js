@@ -9,9 +9,14 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import { getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfigs } from "../database/firebaseAutentication";
 
 export default function User({ id, name, age, height, weight, sex }) {
   const navigation = useNavigation();
+  const App = initializeApp(firebaseConfigs);
+  const auth = getAuth(App);
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -24,6 +29,16 @@ export default function User({ id, name, age, height, weight, sex }) {
       ),
     });
   }, []);
+
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("login");
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <View>
       <View style={{ flex: 1 }}>
@@ -50,7 +65,26 @@ export default function User({ id, name, age, height, weight, sex }) {
         <View style={{ flex: 1, marginBottom: 40 }}>
           <Text>Sex: {sex}</Text>
         </View>
+        <TouchableOpacity onPress={handleSignOut} style={styles.button}>
+          <Text style={styles.buttonText}>Sign Out</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "#0782F9",
+    width: "60%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 50,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+});
