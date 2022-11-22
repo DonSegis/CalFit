@@ -20,7 +20,7 @@ import AgendaScreen from "../src/components/Weekcalendar";
 const ListarComidas = () => {
   const navigation = useNavigation();
   const [state, setstate] = React.useState([]);
-  const meal = [];
+  const [meal, setMeal] = React.useState([]);
 
   React.useEffect(() => {
     const collectionRef = collection(database, "ingredients");
@@ -51,15 +51,9 @@ const ListarComidas = () => {
     Meal.ingredients.push(ingredient);
     let total = Meal.totalCalories + Number(ingredient.calories);
     Meal.totalCalories = total;
-    meal.push({
-      id: ingredient.id,
-      name: ingredient.name,
-      calories: ingredient.calories,
-      proteins: ingredient.proteins,
-      lipids: ingredient.lipids,
-    });
-
     alert("add " + ingredient.name);
+    setMeal(ingredient);
+    console.log(meal);
   };
 
   const updateName = (value) => {
@@ -90,9 +84,11 @@ const ListarComidas = () => {
           onChangeText={(value) => updateName(value)}
         />
         <ScrollView>
-          {/* {meal.map((ingredient) => (
+          {/* {listMeal.map((ingredient) => (
             <Ingredients key={ingredient.id} {...ingredient} />
           ))} */}
+          {console.log(meal)}
+          <Ingredients key={meal.id} {...meal} />
         </ScrollView>
       </View>
 
