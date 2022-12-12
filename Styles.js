@@ -26,8 +26,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerFood: {
-    flex: 1,
-    height: 700,
+    height: 100,
+  },
+  input: {
+    width: 360,
+    height: 40,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    marginVertical: 10,
+    marginBottom: 20,
+    marginHorizontal: 15,
   },
 
   boxFood: {

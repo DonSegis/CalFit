@@ -73,7 +73,7 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Comidas"
+        name="Comida"
         component={MyStack}
         options={{
           headerShown: false,

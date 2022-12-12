@@ -53,30 +53,32 @@ const EditUser = () => {
   };
 
   return (
-    <ScrollView style={Styles.container}>
-      <View style={Styles.inputGrup}>
-        <TextInput
-          placeholder="age"
-          onChangeText={(value) => handleChangetext("age", value)}
-          keyboardType="number-pad"
-        />
-      </View>
-      <View style={Styles.inputGrup}>
-        <TextInput
-          placeholder="height(cm)"
-          onChangeText={(value) => handleChangetext("height", value)}
-          keyboardType="number-pad"
-        />
-      </View>
-      <View style={Styles.inputGrup}>
-        <TextInput
-          placeholder="weight(kg)"
-          onChangeText={(value) => handleChangetext("weight", value)}
-          keyboardType="number-pad"
-        />
-      </View>
-      <View>
-        <Button title="Save" onPress={() => onEdit()} />
+    <ScrollView>
+      <View style={Styles.container}>
+        <View style={Styles.inputGrup}>
+          <TextInput
+            placeholder="age"
+            onChangeText={(value) => handleChangetext("age", value)}
+            keyboardType="number-pad"
+          />
+        </View>
+        <View style={Styles.inputGrup}>
+          <TextInput
+            placeholder="height(cm)"
+            onChangeText={(value) => handleChangetext("height", value)}
+            keyboardType="number-pad"
+          />
+        </View>
+        <View style={Styles.inputGrup}>
+          <TextInput
+            placeholder="weight(kg)"
+            onChangeText={(value) => handleChangetext("weight", value)}
+            keyboardType="number-pad"
+          />
+        </View>
+        <View>
+          <Button title="Save" onPress={() => onEdit()} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -86,6 +88,7 @@ const Styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 35,
+    marginVertical: 100,
   },
   inputGrup: {
     flex: 1,
@@ -93,6 +96,7 @@ const Styles = StyleSheet.create({
     marginBottom: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
+    marginVertical: 30,
   },
 });
 

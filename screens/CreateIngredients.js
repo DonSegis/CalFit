@@ -62,6 +62,7 @@ const Styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 35,
+    marginVertical: 100,
   },
   inputGrup: {
     flex: 1,
@@ -69,6 +70,7 @@ const Styles = StyleSheet.create({
     marginBottom: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
+    marginVertical: 20,
   },
 });
 
